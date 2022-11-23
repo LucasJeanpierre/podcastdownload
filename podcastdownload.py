@@ -14,7 +14,8 @@ from MainWindow import MainWindow
 from DownloadFunctions import *
 
     
-
+#create exe with pyinstaller
+#pyinstaller --onefile --windowed podcastdownload.py
 
 def createMainWindow(file_list):
 
