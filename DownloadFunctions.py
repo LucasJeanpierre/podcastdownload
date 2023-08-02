@@ -9,7 +9,11 @@ def download_posdact(title, file_url):
     question = askquestion('Download', 'You want to download : ' + title)
     if question == 'yes' :
         print(title, file_url)
-        new_title = title.replace(':','').replace(' ', '_').replace('/','_sur_').replace('?','_').replace('!','_').replace('(','_').replace(')','_').replace(',','_').replace('\'','_').replace('é','e').replace('è','e').replace('ê','e').replace('à','a').replace('â','a').replace('î','i').replace('ï','i').replace('ô','o').replace('ö','o').replace('û','u').replace('ü','u').replace('ç','c').replace('ù','u').replace('...','_').replace('..','_').replace('.','_').replace('___','_').replace('__','_')
+        
+        #replace special characters
+        #keep only 50 first characters
+        new_title = title[:50].replace(':','').replace(' ', '_').replace('/','_sur_').replace('?','_').replace('!','_').replace('(','_').replace(')','_').replace(',','_').replace('\'','_').replace('é','e').replace('è','e').replace('ê','e').replace('à','a').replace('â','a').replace('î','i').replace('ï','i').replace('ô','o').replace('ö','o').replace('û','u').replace('ü','u').replace('ç','c').replace('ù','u').replace('...','_').replace("\"", "").replace('..','_').replace('.','_').replace('___','_').replace('__','_')
+
         filepath = os.path.join(path, new_title[:240] +'.mp3')
         file = requests.get(file_url)
         with open(filepath, 'wb') as f:

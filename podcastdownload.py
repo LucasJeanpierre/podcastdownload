@@ -1,4 +1,3 @@
-
 import requests
 import xmltodict
 from tkinter import *
@@ -15,7 +14,7 @@ from DownloadFunctions import *
 
     
 #create exe with pyinstaller
-#pyinstaller --onefile --windowed podcastdownload.py
+#pyinstaller --onefile --windowed --icon=icon.ico podcastdownload.py
 
 def createMainWindow(file_list):
 
@@ -42,6 +41,8 @@ def validateInit(url, root):
 def inputWindow():
     root = Tk()
     root.geometry("400x400")
+    root.title("Podcast Downloader")
+    root.iconbitmap('icon.ico')
     label = Label(root, text="URL : ")
     input = Entry(root)
     button_url = Button(root, text="Validate", command= lambda:validateInit(input.get(), root))

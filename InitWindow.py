@@ -32,7 +32,8 @@ class InitWindow(QMainWindow):
         self.setCentralWidget(self.scroll)
 
         self.setGeometry(600, 100, 1000, 900)
-        self.setWindowTitle('Scroll Area Demonstration')
+        self.setWindowTitle('Podcast Downloader')
+        self.setWindowIcon(QIcon('icon.ico'))
         self.show()
         
        
