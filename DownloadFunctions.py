@@ -22,10 +22,15 @@ def download_posdact(title, file_url):
 
 def get_file_list(content):
     file_list = []
-    for item in content['rss']['channel']['item']:
-        title = item['title']
-        file_url = item['enclosure']['@url']
-        #print(title, file_url)
+    if isinstance(content['rss']['channel']['item'], list):
+        for item in content['rss']['channel']['item']:
+            title = item['title']
+            file_url = item['enclosure']['@url']
+            #print(title, file_url)
+            file_list.append((title, file_url))
+    else:
+        title = content['rss']['channel']['item']['title']
+        file_url = content['rss']['channel']['item']['enclosure']['@url']
         file_list.append((title, file_url))
     return file_list
 
